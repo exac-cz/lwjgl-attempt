@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<assets>
+
+
+
+
+    <texture id="SMILE">
+        <width>64</width>
+        <height>64</height>
+        <file format="RGBA">smile.rgba</file>
+    </texture>
+
+    <texture id="WALLPAPER">
+        <width>800</width>
+        <height>600</height>
+        <file format="RGBA">deep_space-wallpaper-800x600.rgba</file>
+    </texture>
+
+
+    <rasterFont id="FONT">
+        <width>512</width>
+        <height>512</height>
+        <file format="RGBA">font-16x16.rgba</file>
+        <tiles>
+            <width>32</width>
+            <height>32</height>
+            <count>256</count>
+            <countX>16</countX>
+            <countY>16</countY>
+        </tiles>
+        <frames>
+            <width>32</width>
+            <height>32</height>
+            <count>256</count>
+            <countX>16</countX>
+            <countY>16</countY>
+        </frames>
+        <border>0</border>
+    </rasterFont>
+
+</assets>

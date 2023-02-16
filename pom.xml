@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>info.exac</groupId>
+    <artifactId>lwjgl-attemtp</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>LWJGL 3 Tests</name>
+
+
+    <repositories>
+        <repository>
+            <id>central</id>
+            <url>http://central.maven.org/maven2/</url>
+        </repository>
+
+        <repository>
+            <id>snapshots-repo</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+
+
+    <properties>
+        <lwjgl.version>3.1.6</lwjgl.version>
+        <lwjgl.platform.version>3.0.0</lwjgl.platform.version>
+        <spring.version>5.0.3.RELEASE</spring.version>
+        <slf4j.version>1.7.25</slf4j.version>
+        <log4j.version>1.2.17</log4j.version>
+
+        <natives>${basedir}/target/natives-mac/</natives>
+        <release.natives>natives-mac/</release.natives>
+    </properties>
+
+
+
+    <dependencies>
+
+
+        <!-- LWJGL -->
+
+        <dependency>
+            <groupId>org.lwjgl</groupId>
+            <artifactId>lwjgl</artifactId>
+            <version>${lwjgl.version}</version>
+            <classifier>${native.target}</classifier>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.lwjgl/lwjgl-glfw -->
+        <dependency>
+            <groupId>org.lwjgl</groupId>
+            <artifactId>lwjgl-glfw</artifactId>
+            <version>${lwjgl.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.lwjgl</groupId>
+            <artifactId>lwjgl-opengl</artifactId>
+            <version>${lwjgl.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.lwjgl</groupId>
+            <artifactId>lwjgl-openal</artifactId>
+            <version>${lwjgl.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.lwjgl</groupId>
+            <artifactId>lwjgl-stb</artifactId>
+            <version>${lwjgl.version}</version>
+        </dependency>
+
+        <!-- SPRING -->
+
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+
+            <exclusions>
+                <!-- Exclude Commons Logging in favor of SLF4j -->
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+
+
+        <!-- LOGGING -->
+        <!-- remove the real commons-logging from classpath -->
+        <!-- declare as provided or exclude from spring jars -->
+        <dependency>
+            <artifactId>commons-logging</artifactId>
+            <groupId>commons-logging</groupId>
+            <version>1.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- add slf4j interfaces to classpath -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- add commons logging to slf4j bridge to classpath -->
+        <!-- acts as jcl but routes commons-logging calls to slf4j -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>${slf4j.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- add log4j binding to classpath -->
+        <!-- routes slf4j calls to log4j -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- add log4j to classpath -->
+        <!-- does the logging -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+
+
+
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-collections4 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>4.1</version>
+        </dependency>
+
+
+        <!--<dependency>-->
+            <!--<groupId>org.lwjgl</groupId>-->
+            <!--<artifactId>lwjgl-platform</artifactId>-->
+            <!--<version>${lwjgl.platform.version}</version>-->
+            <!--<classifier>natives-windows</classifier>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>org.lwjgl</groupId>-->
+            <!--<artifactId>lwjgl-platform</artifactId>-->
+            <!--<version>${lwjgl.platform.version}</version>-->
+            <!--<classifier>natives-osx</classifier>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>org.lwjgl</groupId>-->
+            <!--<artifactId>lwjgl-platform</artifactId>-->
+            <!--<version>${lwjgl.platform.version}</version>-->
+            <!--<classifier>natives-linux</classifier>-->
+        <!--</dependency>-->
+
+
+
+        <!-- https://mvnrepository.com/artifact/org.slick2d/slick2d-core -->
+        <!--<dependency>-->
+            <!--<groupId>org.slick2d</groupId>-->
+            <!--<artifactId>slick2d-core</artifactId>-->
+            <!--<version>1.0.2</version>-->
+            <!--<exclusions>-->
+                <!--<exclusion>-->
+                    <!--<groupId>org.lwjgl</groupId>-->
+                    <!--<artifactId>lwjgl</artifactId>-->
+                <!--</exclusion>-->
+            <!--</exclusions>-->
+        <!--</dependency>-->
+
+
+        <!-- tests -->
+
+        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+        <!--<dependency>-->
+            <!--<groupId>org.junit.jupiter</groupId>-->
+            <!--<artifactId>junit-jupiter-api</artifactId>-->
+            <!--<version>5.0.3</version>-->
+            <!--<scope>test</scope>-->
+        <!--</dependency>-->
+
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine -->
+        <!--<dependency>-->
+            <!--<groupId>org.junit.jupiter</groupId>-->
+            <!--<artifactId>junit-jupiter-engine</artifactId>-->
+            <!--<version>5.0.3</version>-->
+            <!--<scope>test</scope>-->
+        <!--</dependency>-->
+
+
+
+    </dependencies>
+
+
+    <build>
+        <plugins>
+
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>com.googlecode.mavennatives</groupId>
+                <artifactId>maven-nativedependencies-plugin</artifactId>
+                <version>0.0.7</version>
+                <executions>
+                    <execution>
+                        <id>unpacknatives</id>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                    </execution>
+                </executions>
+
+            </plugin>
+
+        </plugins>
+    </build>
+
+
+
+    <profiles>
+
+        <profile>
+            <id>windows-profile</id>
+            <activation>
+                <os>
+                    <family>Windows</family>
+                </os>
+            </activation>
+
+            <properties>
+                <native.target>natives-win</native.target>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>linux-profile</id>
+            <activation>
+                <os>
+                    <family>Linux</family>
+                </os>
+            </activation>
+
+            <properties>
+                <native.target>natives-linux</native.target>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>macos-profile</id>
+            <activation>
+                <os>
+                    <family>mac</family>
+                </os>
+            </activation>
+
+            <properties>
+                <native.target>natives-mac</native.target>
+            </properties>
+        </profile>
+
+
+    </profiles>
+
+</project>
